@@ -1,0 +1,13 @@
+footer {
+    background-color: azure;
+    display: flex;
+}
+
+.information {
+    padding-left: 4rem;
+    padding-right: 2rem;
+}
+
+li {
+    list-style-type: none;
+}

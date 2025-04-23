@@ -1,0 +1,63 @@
+
+header {
+    background-color: aqua;
+    display: flex;
+    
+}
+h1 {
+    size: 2rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+button {
+    background-color: aqua;
+    text-align: center;
+    width: 4rem;
+    height: 3rem;
+    margin-bottom: 5%;
+    border: 0cap;
+    border-radius: 4px;
+    transition: scale 0.8s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menyDrop {
+    position: relative;
+    height: auto;
+}
+.drop {
+    position: absolute;
+    background-color: aqua;
+    text-align: center;
+}
+
+.home {
+    margin-top: 0.5rem;
+    width: 4rem;
+    height: 2rem;
+    padding-top: 1rem;
+    list-style-type: none;
+    transition: scale 0.8s ease-in-out;
+}
+.home:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.shopingCart {
+    margin-top: 3rem;
+    width: 4rem;
+    height: 3rem;
+    padding-top: 1rem;
+    list-style-type: none;
+    transition: scale 0.8s ease-in-out;
+}
+.shopingCart:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
