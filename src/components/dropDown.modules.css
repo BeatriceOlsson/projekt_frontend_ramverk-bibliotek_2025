@@ -1,0 +1,53 @@
+
+
+button {
+    background-color: aqua;
+    text-align: center;
+    width: 4rem;
+    height: 3rem;
+    margin-bottom: 5%;
+    border: 0cap;
+    border-radius: 4px;
+    transition: scale 0.8s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menyDrop {
+    position: relative;
+    height: auto;
+}
+.drop {
+    position: absolute;
+    background-color: aqua;
+    text-align: center;
+}
+
+.dropItem1 {
+    margin-top: 0.5rem;
+    width: 4rem;
+    height: 2rem;
+    padding-top: 1rem;
+    list-style-type: none;
+    transition: scale 0.8s ease-in-out;
+}
+.dropItem1:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dropItem2 {
+    margin-top: 3rem;
+    width: 4rem;
+    height: 3rem;
+    padding-top: 1rem;
+    list-style-type: none;
+    transition: scale 0.8s ease-in-out;
+}
+.dropItem2:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

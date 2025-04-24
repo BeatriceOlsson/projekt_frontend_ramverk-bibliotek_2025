@@ -1,14 +1,18 @@
 import './App.css'
-import Header from './components/header'
-import Footer from './components/footer'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './pages/home.jsx';
+import Cart from './pages/cart.jsx';
+import Product from './pages/productPage.jsx';
 
 function App() {
   return (
-    <>
-       <Header />
-       <h1>hej</h1>
-       <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/product/:id' element={<Product />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -1,5 +1,8 @@
 import { useState } from "react"
 import './header.modules.css'
+import './dropDown.modules.css'
+
+
 
 
 export default function Header() {
@@ -18,8 +21,9 @@ export default function Header() {
             <button onClick={(handelClick)}>Meny</button>
             {drop && (
                 <div className="menyDrop">
-                    <div className="drop home">Home</div>
-                    <div className="drop shopingCart">Shoping Cart</div>
+                    <div className="drop dropItem1">
+                        <a href="/">Home</a></div>
+                    <div className="drop dropItem2"><a href="/cart">Cart</a></div>
                 </div>
             )}
         </menu>
