@@ -1,24 +1,18 @@
-import { useState } from "react"
+
 import './header.modules.css'
 import './dropDown.modules.css'
+import { useDropdown } from '../hooks/dropdown'
 
 
 
 
 export default function Header() {
-    const [drop,setDrop]= useState(false);
+    const {drop,shuldDrop}= useDropdown();
 
-    function handelClick (){
-        if(drop === true){
-            setDrop(false);
-        }else{
-            setDrop(true);
-        }
-    }
  return (
     <header>
         <menu>
-            <button onClick={(handelClick)}>Meny</button>
+            <button onClick={(shuldDrop)}>Meny</button>
             {drop && (
                 <div className="menyDrop">
                     <div className="drop dropItem1">
