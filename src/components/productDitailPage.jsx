@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom"
 import useProduktFetch from "../hooks/produktFetch";
+import { useState } from "react";
 
 
 export default function ProductDitailpage () {
     const { id } = useParams();
-    const { products, error} = useProduktFetch();
+    const { products, error } = useProduktFetch();
+    const [selectedAmount, amount ] = useState(1);
 
     if (error) return <p>Fel uppstog: {error}</p>;
 
@@ -12,12 +14,31 @@ export default function ProductDitailpage () {
 
     if (!product) return <p>Loading...</p>;
 
+    const addToCart = (amount) => {
+        console.log(`Adderat ${amount} av ${product.title}`);
+    }
+
+    const increasAmount = () => {
+        if(selectedAmount < product.stock) {
+            amount(prev => prev + 1);
+    }};
+    
+    const decreasAmount = () => {
+        amount(prev => Math.max(prev -1, 1));
+    };
+
     return (
         <div>
         <h1>{product.title}</h1>
         <img src={product.images[0]} alt={product.title} style={{maxWidth: '300px'}}/>
         <h3>Pris: {product.price} kr</h3>
         <p>{product.description}</p>
+        
+        <button onClick={decreasAmount}> - </button>
+        <span>{selectedAmount}</span>
+        <button onClick={increasAmount}> + </button>
+        <button onClick={ () => addToCart(selectedAmount)}>Läg till i kundvagnen!</button>
+
         <p>Betyg: {product.rating}</p>
 
         <h4>Recensioner:</h4>
