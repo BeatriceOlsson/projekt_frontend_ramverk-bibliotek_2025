@@ -17,7 +17,8 @@ export default function Header() {
                 <div className="menyDrop">
                     <div className="drop dropItem1">
                         <a href="/">Home</a></div>
-                    <div className="drop dropItem2"><a href="/cart">Cart</a></div>
+                    <div className="drop dropItem2">
+                        <a href="/cart">Cart</a></div>
                 </div>
             )}
         </menu>

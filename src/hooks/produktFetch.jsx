@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-function ProduktFetch ({children}) {
+const useProduktFetch = () => {
     const [products, setProduct] = useState([]);
+    const [category, setCategory] =useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -13,7 +14,11 @@ function ProduktFetch ({children}) {
                     throw new Error('Respons from network error '+ response.statusText);
                 }
                 const data = await response.json();
+                console.log('Data', data);
                 setProduct(data.products);
+
+                const categoryList = [...new Set(data.products.map(Product => Product.category))];
+                setCategory(categoryList);
 
             } catch (err) {
                 setError(err.message);
@@ -22,11 +27,8 @@ function ProduktFetch ({children}) {
         }
         fetchData();
     }, []);
-    return (
-        <>
-        {children({products, error})}
-        </>
-    )
+    
+    return {products, error, category}
 }
 
-export default ProduktFetch;
+export default useProduktFetch;
