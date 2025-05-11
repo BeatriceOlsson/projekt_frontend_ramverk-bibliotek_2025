@@ -3,10 +3,11 @@ import useProduktFetch from "../hooks/produktFetch";
 import { useState } from "react";
 
 
-export default function ProductDitailpage () {
+export default function ProductDitailpage ({ addToCart, removeCart, }) {
     const { id } = useParams();
     const { products, error } = useProduktFetch();
-    const [selectedAmount, amount ] = useState(1);
+    const [selectedAmount, setSelectedAmount ] = useState(1);
+
 
     if (error) return <p>Fel uppstog: {error}</p>;
 
@@ -14,18 +15,33 @@ export default function ProductDitailpage () {
 
     if (!product) return <p>Loading...</p>;
 
-    const addToCart = (amount) => {
-        console.log(`Adderat ${amount} av ${product.title}`);
-    }
+    //const amountInCart = getAmount(product.id);
+
+    const handelAdd = () => {
+        //console.log('cart: ', cart);
+        //console.log('Product ID: ', product.id);
+
+        addToCart({id: product.id,
+            price: product.price,
+            title: product.title,
+            image: product.images[0],
+            amount: selectedAmount }, product.stock );
+    };
+
+    const handelRemove = () => {
+        removeCart(product.id);
+    };
+
 
     const increasAmount = () => {
         if(selectedAmount < product.stock) {
-            amount(prev => prev + 1);
+            setSelectedAmount(prev => prev + 1);
     }};
     
     const decreasAmount = () => {
-        amount(prev => Math.max(prev -1, 1));
+        setSelectedAmount(prev => Math.max(prev -1, 1));
     };
+
 
     return (
         <div>
@@ -37,7 +53,8 @@ export default function ProductDitailpage () {
         <button onClick={decreasAmount}> - </button>
         <span>{selectedAmount}</span>
         <button onClick={increasAmount}> + </button>
-        <button onClick={ () => addToCart(selectedAmount)}>Läg till i kundvagnen!</button>
+        <button onClick={ handelAdd }>Läg till i kundvagnen!</button>
+        <button onClick={ handelRemove }>Ta bort</button>
 
         <p>Betyg: {product.rating}</p>
 
