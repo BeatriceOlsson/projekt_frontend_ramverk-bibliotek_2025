@@ -1,7 +1,13 @@
-export default function Cart({ cart }) {
+import { Link } from "react-router-dom";
+
+export default function Cart({ cart, removeCart }) {
 
     const priceTotal= cart.reduce((sum, item) =>
        sum + item.price * item.amount, 0 );
+
+    const handelRemove = (id) => {
+        removeCart(id);
+    };
 
     return (
         <div>
@@ -13,13 +19,16 @@ export default function Cart({ cart }) {
                 {cart.map((item, index) =>(
                     <div key={index}>
                         <h3>{item.title}</h3>
-                        <img src={item.image} alt={item.title} />
-                        <p>Pris: {item.price} kr</p>
+                        <img src={item.image} alt={item.title} height='200px' />
+                        <p>Pris: {item.price}</p>
                         <p>Antal: {item.amount}</p>
+                        <button onClick={() => handelRemove(item.id)}>Ta bort</button>
                     </div>
                 ))}
-                <h2>Total pris: {priceTotal} kr</h2>
-                <button>Gå vidare för att beställa</button>
+                <h2>Total pris: {parseFloat(priceTotal).toFixed(2)}</h2>
+                <Link to="/cart/cart/chekoute">
+                    <button>Gå vidare för att beställa</button>
+                </Link>
                 </>
             )}
         </div>

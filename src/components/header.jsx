@@ -2,6 +2,7 @@
 import './header.modules.css'
 import './dropDown.modules.css'
 import { useDropdown } from '../hooks/dropdown'
+import { Link } from 'react-router-dom';
 
 
 
@@ -22,7 +23,9 @@ export default function Header() {
                 </div>
             )}
         </menu>
+        <Link to='/'>
         <h1>Min e-handel</h1>
+        </Link>
         <img src="/assets/mobile-shopping.png" alt="Sites icon" />
     </header>
  )   
