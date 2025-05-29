@@ -6,7 +6,7 @@ function Home() {
 
 
     return (
-        <div>
+        <div className='flex flex-wrap gap-6'>
             <ProductCard/>
         </div>
 

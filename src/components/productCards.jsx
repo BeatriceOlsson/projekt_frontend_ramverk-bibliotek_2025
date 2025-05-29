@@ -15,15 +15,15 @@ export function ProductCard () {
     }
 
     return (
-        <div>
+        <div className="grid grid-cols-1 sm:grid-coms-2 md:grid-cols-3 gap-6 p-4">
             {products.map((product) =>
-            <li key={product.id}>
-            <Link to={`/product/${product.id}`}>
-                <h2>{product.title}</h2>
-                <p>Betyg: {Math.round(product.rating)}</p>
-                <h3>Kosnad: {product.price}</h3>
+            <li key={product.id} className="border rounded-lg shadow-md p-4 flex flex-col items-center">
+            <Link to={`/product/${product.id}`} className="w-full flex flex-col items-center">
+                <h2 className="text xl font-semibold mb-2 text-center">{product.title}</h2>
+                <p className="mb-1">Betyg: {Math.round(product.rating)}</p>
+                <h3 className="mb-3 font-bold">Kosnad: {product.price}</h3>
                 {product.images && product.images.length > 0 ? (
-                    <img src={product.images[0]} alt={product.title} width='200px' />
+                    <img src={product.images[0]} alt={product.title} className="w-48 h-48 object-cover rounded" />
                 ) : (<p>Bild kunde inte ladas</p>)}
             </Link>
             </li>
