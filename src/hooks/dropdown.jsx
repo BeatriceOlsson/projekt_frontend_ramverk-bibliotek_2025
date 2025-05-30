@@ -13,5 +13,3 @@ export function useDropdown () {
 
     return {drop, shuldDrop};
 }
-
-/*Kan återanvända till drop down för filter av den versa data. */

@@ -15,12 +15,9 @@ export default function ProductDitailpage ({ addToCart, removeCart, }) {
 
     if (!product) return <p>Loading...</p>;
 
-    //const amountInCart = getAmount(product.id);
 
+    //Skickar data till cart som t.ex mängd samt kollar att det fins i lagret.
     const handelAdd = () => {
-        //console.log('cart: ', cart);
-        //console.log('Product ID: ', product.id);
-
         addToCart({id: product.id,
             price: product.price,
             title: product.title,
@@ -32,7 +29,7 @@ export default function ProductDitailpage ({ addToCart, removeCart, }) {
         removeCart(product.id);
     };
 
-
+    //Handerar knapparna för mängd.
     const increasAmount = () => {
         if(selectedAmount < product.stock) {
             setSelectedAmount(prev => prev + 1);

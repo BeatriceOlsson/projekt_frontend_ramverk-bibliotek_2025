@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-
+//Hemmtar datan som sumitades i /chekOute för att visa för köpparen
 export default function Orderd() {
     const location = useLocation();
     const { form } = location.state || {};

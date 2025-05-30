@@ -11,6 +11,8 @@ import { useEffect, useState } from 'react';
 import { useHandelProductAmount } from './hooks/addRemoveCart.jsx';
 
 function App() {
+  /*Kollar om en "cart" redan är påbörjad eller inte. 
+  Plaserat här då al data skickas neråt och alla förändringar speglas på alla sidor*/
   const [ cart, setCart ] = useState(() => {
     const saved = localStorage.getItem('cart');
     return saved ? JSON.parse(saved) : [];
@@ -18,6 +20,7 @@ function App() {
 
   const {addToCart, getAmount, removeCart, clearCart } = useHandelProductAmount(cart, setCart);
 
+  //Sparar alla ändringar i localStorage. 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);

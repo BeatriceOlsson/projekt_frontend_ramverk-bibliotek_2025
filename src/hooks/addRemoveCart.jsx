@@ -2,6 +2,7 @@
 
 export function useHandelProductAmount (cart ,setCart) {
 
+    //Adderar prudukt till cart oavset om det redan fins, kollar om det fins i lagret.
     const addToCart = (item, maxStock) => {
         setCart(prevCart => {
             const existing = prevCart.find(p=> p.id === item.id);
@@ -20,7 +21,8 @@ export function useHandelProductAmount (cart ,setCart) {
             }
         });
     };
-    //Vet inte om den behövs då det är osäckert på om jag använder den
+    
+    //Tar bort produkten från cart med 1, når det 0 tars produkten bort.
     const removeCart = (id) => {
         setCart(prevCart =>
             prevCart.map (p => p.id ===id ? {...p, amount: p.amount - 1}: p )
@@ -43,7 +45,6 @@ export function useHandelProductAmount (cart ,setCart) {
     const getTotalAmount = () => {
         return cart.reduce(( total, item ) => total + item.amount, 0);
     };
-
 
 
     return{

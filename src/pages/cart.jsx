@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Cart({ cart, removeCart }) {
 
+    //Beräckanr totala kosnaden
     const priceTotal= cart.reduce((sum, item) =>
        sum + item.price * item.amount, 0 );
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export default function ChekOute({ cart, clearCart }){
+export default function ChekOute({ clearCart }){
     const [ form ,setForm ] = useState({firstNamne:"", lastNamne:"", userEmail:"", homeAddres:"", cityName:"", cityNumber:"",});
 
     const navigate = useNavigate();
@@ -12,9 +12,9 @@ export default function ChekOute({ cart, clearCart }){
         setForm((prev) => ({ ...prev, [name]: value}));
     }
 
+    //Hanterar datan och skickar den vidare till /orderd. useNavigate hook används för att förhinda behöva ha data i URL:en
     const handelSubmit = (event) => {
         event.preventDefault();
-        console.log(form, cart);
         clearCart();
         navigate("/orderd", {state: {form}});
     }

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 const useProduktFetch = () => {
     const [products, setProduct] = useState([]);
-    const [category, setCategory] =useState([]);
     const [error, setError] = useState(null);
 
+    //Hämtar data, hanterar den och retunerar data eller error
     useEffect(() => {
         async function fetchData() {
             try {
@@ -14,11 +14,7 @@ const useProduktFetch = () => {
                     throw new Error('Respons from network error '+ response.statusText);
                 }
                 const data = await response.json();
-                console.log('Data', data);
                 setProduct(data.products);
-
-                const categoryList = [...new Set(data.products.map(Product => Product.category))];
-                setCategory(categoryList);
 
             } catch (err) {
                 setError(err.message);
@@ -28,7 +24,7 @@ const useProduktFetch = () => {
         fetchData();
     }, []);
     
-    return {products, error, category}
+    return {products, error}
 }
 
 export default useProduktFetch;
