@@ -1,12 +1,21 @@
-# React + Vite
+Projektbeskrivning:
+Detta är en enkel e-handel som utvecklats i React under utbildningen Frontend Ramverk/Bibliotek (React & Angular) under vår-terminen 2025. De satta projektet kraven för e-handel har gets från skolan och säkerställer att vi visat kunskaper som behöves för utbildningen. Denna e-handel är därför utvecklad i lärande syfte och inte för konversiellt bruk.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Installera och starta projektet
 
-Currently, two official plugins are available:
+Klona projektet genom att köra:
+git clone https://github.com/BeatriceOlsson/projekt_frontend_ramverk-bibliotek_2025
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Navigera dej fram till projektet:
+cd projekt_frontend_ramverk-bibliotek_2025
 
-## Expanding the ESLint configuration
+Installera de använda beroenden för projektet:
+npm install
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Starta utvecklings-serven med:
+npm start
+
+Öppna sidan i en browser med den givna localhost.
+
+Tekniker som använts:
+React version 19.0.10 och Vite version 6.2.0 och Tailwindcss 3.4.17.
