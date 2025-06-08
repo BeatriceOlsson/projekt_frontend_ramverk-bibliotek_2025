@@ -10,7 +10,7 @@ export default function Header() {
  return (
     <header className='bg-cyan-400 flex items-center justify-between rounded px-6 py-4 relative'>
         <menu className='relative m-0 p-0'>
-            <button onClick={(shuldDrop)} 
+            <button onClick={shuldDrop} 
             className='bg-blue-500 px-4 py-2 rounded shadow hover: bg-gray-100'
             >Meny</button>
             {drop && (
