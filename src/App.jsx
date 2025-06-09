@@ -18,7 +18,7 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const {addToCart, getAmount, removeCart, clearCart } = useHandelProductAmount(cart, setCart);
+  const {addToCart, removeCart, clearCart } = useHandelProductAmount(cart, setCart);
 
   //Synkar alla ändringar i localStorage. 
   useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<Cart cart={cart} removeCart={removeCart} />} />
-        <Route path='/product/:id' element={<ProductDitailpage cart={cart} addToCart={addToCart} removeCart={removeCart} getAmount={getAmount} />} />
+        <Route path='/product/:id' element={<ProductDitailpage cart={cart} addToCart={addToCart} removeCart={removeCart} />} />
         <Route path='/cart/cart/chekoute' element={<ChekOute cart={cart} clearCart={clearCart} />}/>
         <Route path='/orderd' element={<Orderd />} />
       </Routes>

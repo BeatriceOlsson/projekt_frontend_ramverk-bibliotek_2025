@@ -34,20 +34,12 @@ export function useHandelProductAmount (cart ,setCart) {
         setCart(prevCart => prevCart.filter( p => p.id !== id));
     };
 
-    const getAmount = ( id) => {
-        return cart.find( p => p.id === id) ?.amount || 0;
-    };
-
     const clearCart = () => {
         setCart([]);
     };
 
-    const getTotalAmount = () => {
-        return cart.reduce(( total, item ) => total + item.amount, 0);
-    };
-
 
     return{
-        cart, addToCart, removeCart, clearItem, getAmount, clearCart, getTotalAmount,
+        cart, addToCart, removeCart, clearItem, clearCart,
     };
 };
