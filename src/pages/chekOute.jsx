@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/useCart";
 
 
-export default function ChekOute({ clearCart }){
+export default function ChekOute(){
     const [ form ,setForm ] = useState({firstNamne:"", lastNamne:"", userEmail:"", homeAddres:"", cityName:"", cityNumber:"",});
+    const { clearCart } = useCart();
 
     const navigate = useNavigate();
 

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/useCart";
 
-export default function Cart({ cart, removeCart }) {
+
+export default function Cart() {
+    const { cart, removeCart } = useCart();
 
     //Beräckanr totala kosnaden
     const priceTotal= cart.reduce((sum, item) =>

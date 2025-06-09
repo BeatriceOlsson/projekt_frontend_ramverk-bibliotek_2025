@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom"
 import useProduktFetch from "../hooks/produktFetch";
 import { useState } from "react";
+import { useCart } from "../context/useCart";
 
 
-export default function ProductDitailpage ({ addToCart, removeCart, }) {
+export default function ProductDitailpage () {
+    const { addToCart, removeCart } = useCart();
     const { id } = useParams();
     const { products, error } = useProduktFetch();
     const [selectedAmount, setSelectedAmount ] = useState(1);

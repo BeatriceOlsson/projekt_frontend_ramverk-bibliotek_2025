@@ -7,23 +7,8 @@ import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import ChekOute from './pages/chekOute.jsx';
 import Orderd from './pages/orderd.jsx';
-import { useEffect, useState } from 'react';
-import { useHandelProductAmount } from './hooks/addRemoveCart.jsx';
 
 function App() {
-  /*Kollar om "cart" redan har produkten i sig eller. 
-  Plaserat här då al data skickas neråt och alla förändringar speglas på alla sidor*/
-  const [ cart, setCart ] = useState(() => {
-    const saved = localStorage.getItem('cart');
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  const {addToCart, removeCart, clearCart } = useHandelProductAmount(cart, setCart);
-
-  //Synkar alla ändringar i localStorage. 
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
 
 
   return (
@@ -31,9 +16,9 @@ function App() {
     <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/cart' element={<Cart cart={cart} removeCart={removeCart} />} />
-        <Route path='/product/:id' element={<ProductDitailpage cart={cart} addToCart={addToCart} removeCart={removeCart} />} />
-        <Route path='/cart/cart/chekoute' element={<ChekOute cart={cart} clearCart={clearCart} />}/>
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/product/:id' element={<ProductDitailpage  />} />
+        <Route path='/cart/cart/chekoute' element={<ChekOute  />}/>
         <Route path='/orderd' element={<Orderd />} />
       </Routes>
     <Footer />
